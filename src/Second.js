@@ -4,10 +4,9 @@ import "./App.css";
 
 
 function Second(props) {
-    console.log('second');
+    
     const {information, imgURL} = props
-    console.log(information);
-    console.log(imgURL);
+    
     
     return (
       <div className="Second">

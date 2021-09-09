@@ -4,7 +4,55 @@ import axios from "axios";
 import "./App.css";
 import { BASE_URL, API_KEY } from './constants';
 import Second from './Second';
-import Loading from './Loading'
+import Loading from './Loading';
+import styled from 'styled-components';
+
+const StyledHeader = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .title h1{
+    border:1px solid grey;
+    position: relative;
+    display: inline-block;
+    background-color: #1e221e;
+    width: auto;
+    padding: .7%;
+    margin: 1%;
+    border-radius: 100%
+  }
+  .date{
+  
+    position: relative;
+    display: block;
+    height: auto;
+    width: auto;
+    margin:1%;
+  }
+
+  .date h2{
+    border:1px solid grey;
+    position: relative;
+    display: inline-block;
+    background-color: #1e221e;
+    width: auto;
+    padding: .7%;
+    margin: 0px;
+    border-radius: 100%
+  }
+
+  .title{
+    border:1px solid grey;
+    position: relative;
+    display: block;
+    height: auto;
+    width: auto;
+  
+    
+  }
+
+`
 
 
 
@@ -36,11 +84,15 @@ function App() {
 
   return (
     <div className="App">
-      <div className="Header">
-        {dataNASA.length === 0 && <Loading/>}
-        <h1>{dataNASA.title}</h1>
-        <h2>{dataNASA.date}</h2>
-      </div>
+      {dataNASA.length === 0 && <Loading/>}
+      <StyledHeader>
+          <div className="title"div>
+            <h1>{dataNASA.title}</h1>
+          </div>
+          <div className="date"div>
+            <h2>{dataNASA.date}</h2>
+          </div>
+      </StyledHeader>
       <div className="Main">
         {dataNASA.length !== 0 && <button id='toggle_img' onClick={imgOpenClose}>
         {imgState ? "Hide" : "Show"}
